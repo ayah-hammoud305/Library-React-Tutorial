@@ -19,14 +19,14 @@ const Nav = () => {
             </a>
         <ul className="nav__links">
             <li className="nav__list">
-                <a href='/' className='nav__link'>
+                <Link to='/' className='nav__link'>
                 Home
-                </a>
+                </Link>
             </li>
             <li className="nav__list">
-                <a href='/books' className='nav__link'>
+                <Link to='/books' className='nav__link'>
                 Books
-                </a>
+                </Link>
             </li>
             <button className='btn__menu' onClick={openMenu}>
                 <FontAwesomeIcon icon='bars' />
