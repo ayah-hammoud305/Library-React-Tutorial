@@ -1,7 +1,7 @@
 import React from "react";
 
 
-const Cart = ({ cart }) => {
+const Cart = ({ cart, changeQuantity }) => {
     return (
         <div id="books__body">
             <main id="books__main">
@@ -20,7 +20,7 @@ const Cart = ({ cart }) => {
                             </div>
                             <div className="cart__body">
                                 {
-                                    cart.map(book => {
+                                    cart.map((book) => {
                                         return (
                                             <div className="cart__item">
                                     <div className="cart__book">
@@ -38,7 +38,9 @@ const Cart = ({ cart }) => {
                                         </div>
                                     </div>
                                     <div className="cart__quantity">
-                                        <input type="number" min={0} max={99} className="cart__input"/>
+                                        <input type="number" min={0} max={99}
+                                        onChange={(event) => changeQuantity(book, event.target.value)}
+                                        className="cart__input"/>
                                     </div>
                                     <div className="cart__total">
                                         $10.00

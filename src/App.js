@@ -12,7 +12,12 @@ function App() {
   const [cart, setCart] = useState([]);
 
     function addToCart(book) {
-      setCart([...cart, book])
+      setCart([...cart,{ ...book, quantity: 1 }])
+      // Spread "..." operator includes everything within that property, sale price, id, url, etc.
+    }
+
+    function changeQuantity(book, quantity ) {
+      console.log(book, quantity)
     }
 
     useEffect(() => {
@@ -28,8 +33,8 @@ function App() {
       <Nav />
       <Route path="/" exact component={Home} />
       <Route path="/books" exact render={() => <Books books={books} />} />
-      <Route path="/books/:id" render={() => <BookInfo books={books} addToCart={addToCart} />} />
-      <Route path="/cart" render={() => <Cart books={books}  cart={cart} />} />
+      <Route path="/books/:id" render={() => <BookInfo cart={cart} books={books} addToCart={addToCart} />} />
+      <Route path="/cart" render={() => <Cart books={books}  cart={cart} changeQuantity={changeQuantity} />} />
       <Footer />
     </div>
     </Router>
